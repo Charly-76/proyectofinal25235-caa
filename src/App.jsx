@@ -6,6 +6,12 @@ import About from './components/About';
 import ProductDetail from './components/ProductDetail';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Carrito from './pages/Carrito';
+import Inicio from './pages/Inicio';
+import Nosotros from './pages/Nosotros';
+import './App.css';
 
 const App = () => {
   const [cart, setCart] = useState([]);
