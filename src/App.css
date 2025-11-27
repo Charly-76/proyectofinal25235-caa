@@ -1,129 +1,389 @@
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  justify-content: flex-start;
+/* ==================== Contenedor principal ==================== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
 }
 
+/* ==================== Header ==================== */
+/* Título estilo neón animado */
+.neon-title {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 
+    0 0 5px #ff6b6b,
+    0 0 10px #ff6b6b,
+    0 0 20px #ff6b6b,
+    0 0 40px #ff4757,
+    0 0 80px #ff4757;
+  animation: neonFlicker 2s infinite alternate;
+  transition: transform 0.3s;
+}
+
+.neon-title:hover {
+  transform: scale(1.3);
+  text-shadow:
+    0 0 10px #48dbfb,
+    0 0 20px #48dbfb,
+    0 0 30px #48dbfb,
+    0 0 50px #1dd1a1,
+    0 0 100px #1dd1a1;
+}
+
+/* Animación de parpadeo neón */
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 5px #ff6b6b,
+      0 0 10px #ff6b6b,
+      0 0 20px #ff6b6b,
+      0 0 40px #ff4757,
+      0 0 80px #ff4757;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.header-custom {
+  background: linear-gradient(90deg, #343a40, #495057);
+  padding: 1rem 0;
+}
+
+.logo-header {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.logo-header:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.brand-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.nav-link-custom {
+  color: #f8f9fa;
+  transition: color 0.3s;
+}
+
+.nav-link-custom:hover {
+  color: #ffc107;
+  text-decoration: underline;
+}
+
+.btn-header {
+  border-radius: 20px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-header:hover {
+  transform: scale(1.05);
+  background-color: #ffc107;
+  color: #343a40;
+}
+
+.carrito-link {
+  font-size: 1.4rem;
+  transition: transform 0.2s;
+}
+
+.carrito-link:hover {
+  transform: scale(1.1);
+}
+
+.badge-cart {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.4em 0.6em;
+}
+
+/* ==================== Iconos de redes sociales ==================== */
+.social-icon {
+  color: #f8f9fa;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffc107;
+  transform: scale(1.2);
+}
+
+/* ==================== Tarjetas de producto ==================== */
 .product-card {
-  width: 200px; 
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  height: 100%; /* que ocupe todo el espacio del Col */
   display: flex;
   flex-direction: column;
-  align-items: center;
- 
+  justify-content: space-between;
 }
-
 
 .product-card img {
-  max-width: 100%;
-  height: 150px;
+  max-height: 200px;
   object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.product-card h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  flex-grow: 1; 
-}
-
-.product-card p {
-  font-weight: bold;
   margin-bottom: 1rem;
 }
 
+.product-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.product-card .card-body {
+  padding: 15px;
+}
+
+.product-card .card-title {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.product-card .card-text {
+  font-size: 0.95rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
 .product-card button {
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
+  border-radius: 20px;
+  padding: 5px 15px;
+  transition: all 0.2s;
 }
 
 .product-card button:hover {
-  background-color: #0056b3;
+  transform: scale(1.05);
 }
-.navbar {
-  padding: 1rem 2rem;
-  background-color: #007bff;
-  color: white;
-  font-weight: 600;
+
+/* ==================== Formulario de filtros ==================== */
+.filter-card {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.filter-card .form-control {
+  border-radius: 20px;
+  transition: box-shadow 0.2s ease;
+}
+
+.filter-card .form-control:focus {
+  box-shadow: 0 0 8px rgba(0,123,255,0.5);
+  border-color: #007bff;
+}
+
+.filter-card .btn {
+  border-radius: 20px;
+  padding: 5px 15px;
+  transition: all 0.2s;
+}
+
+.filter-card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== Media Queries ==================== */
+@media (max-width: 992px) {
+  .product-card img { max-height: 130px; }
+  .brand-title { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  #root { padding: 1rem; }
+  .product-card img { max-height: 120px; }
+  .nav-link-custom { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .brand-title { font-size: 0.95rem; }
+  .btn-header { font-size: 0.85rem; padding: 4px 10px; }
+  .social-icon { font-size: 1.1rem; }
+}
+
+@media (max-width: 576px) {
+  .product-card img { max-height: 100px; }
+  .brand-title { font-size: 0.85rem; }
+  .nav-link-custom { font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .btn-header { font-size: 0.75rem; padding: 3px 8px; }
+  .social-icon { font-size: 1rem; margin-right: 0.5rem; }
+}
+/* Logo estilo neón */
+.brand-title.neon-title {
+  color: #ff00ff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff;
+}
+
+/* Esfera neón al lado del texto */
+.neon-sphere {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #00ffff, #000);
+  box-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 15px #00ffff;
+}
+/* src/components/ProductSlider.css */
+
+.slider-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem 0;
+}
+
+.slider {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  font-family: Arial, sans-serif;
-  flex-wrap: wrap;
 }
 
-.navbar a {
+.slider-item {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 250px; /* ancho de cada tarjeta */
+}
+.deluxe-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: #ff00ff; /* neón magenta */
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #ff00ff,
+    0 0 80px #ff00ff;
+  transition: all 0.3s ease;
+}
+
+.deluxe-title:hover {
+  color: #ff66ff;
+  text-shadow:
+    0 0 10px #ff66ff,
+    0 0 20px #ff66ff,
+    0 0 30px #ff66ff,
+    0 0 50px #ff99ff,
+    0 0 100px #ff99ff;
+  transform: scale(1.1) rotate(-2deg);
+}
+
+.deluxe-button {
+  background: linear-gradient(45deg, #ff33cc, #cc00ff);
+  border: none;
   color: white;
-  text-decoration: none;
-  font-size: 1.1rem; 
-  transition: color 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.navbar a:hover,
-.navbar a:focus {
-  color: #ffc107;
-  outline: none;
+.deluxe-button:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 0 20px #ff33cc, 0 0 30px #cc00ff;
 }
 
-.navbar .separator {
-  margin: 0 0.5rem;
-  color: white;
-  user-select: none; 
-  font-size: 1.1rem;
+/* Logo animado */
+.productos-logo {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.5s, filter 0.5s;
 }
 
+.productos-logo:hover {
+  transform: rotateY(360deg) scale(1.2);
+  filter: hue-rotate(90deg);
+}
+.contenedor-mas-vendidos {
+  text-align: center;
+  padding: 20px;
+}
 
-@media (max-width: 480px) {
-  .navbar {
-    flex-direction: column; 
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .navbar .separator {
-    display: none; 
-  }
-
-  .navbar a {
-    font-size: 1.3rem; 
-  }
-.navbar {
-  padding: 1rem 2rem;
-  background-color: #007bff;
-  color: white;
-  font-weight: 600;
+.carrusel {
+  position: relative;
+  width: 70%;
+  margin: auto;
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  font-family: Arial, sans-serif;
 }
 
-.navbar a {
+.carrusel-ventana {
+  overflow: hidden;
+  width: 350px;         /* tamaño mediano */
+  height: 420px;
+  border-radius: 10px;
+}
+
+.carrusel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-producto {
+  min-width: 350px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* ⭐ EFECTO AL PASAR EL MOUSE ⭐ */
+.card-producto:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+.card-producto img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.btn-carrusel {
+  background: #000;
   color: white;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  border: none;
+  font-size: 25px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 10px;
+  transition: 0.2s;
 }
 
-.navbar a:hover {
-  color: #ffc107;
+.btn-carrusel:hover {
+  background: #444;
+}
+.contenedor-mas-vendidos h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: aparecer 0.7s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-15px);
 }
 
-.navbar .separator {
-  margin: 0 0.5rem;
-  color: white;
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-}
+
+

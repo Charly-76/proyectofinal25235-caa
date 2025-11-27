@@ -1,44 +1,38 @@
-import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductList from './components/ProductList';
-import Cart from './components/Cart';
-import About from './components/About';
-import ProductDetail from './components/ProductDetail';
-import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import Footer from './components/Footer';
 import Header from './components/Header';
-import Carrito from './pages/Carrito';
 import Inicio from './pages/Inicio';
+import Ofertas from './components/Ofertas';
 import Nosotros from './pages/Nosotros';
+import Infaltables from './components/Infaltables';
+import MasVendidos from "./components/MasVendidos";
+import Login from './pages/Login'; 
+import Footer from './components/Footer'
+import { CartProvider } from './components/CartContext';
+import Carrito from './pages/Carrito'; 
+import CrudProductos from './components/CrudProductos';
 import './App.css';
 
-const App = () => {
-  const [cart, setCart] = useState([]);
 
-  const handleAddToCart = (product) => {
-    setCart([...cart, product]);
-  };
+function App() {
 
   return (
-    <Router>
-      <Layout cartItems={cart}>
-        <Routes>
-          <Route path="/" element={<ProductList onAddToCart={handleAddToCart} />} />
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute isLoggedIn={true}>
-                <Cart cartItems={cart} />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/product/:id" element={<ProductDetail onAddToCart={handleAddToCart} />} />
-        </Routes>
-      </Layout>
+      <CartProvider>
+     <Router>
+      <Header />
+      <Routes>
+        <Route path="/administracion" element={<Login />} />
+        <Route path="/" element={<Inicio />} />
+        <Route path="/masvendidos" element={<MasVendidos />} />
+        <Route path="/ofertas" element={<Ofertas />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/infaltables" element={<Infaltables />} />
+        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/crud" element={<CrudProductos />} />
+      </Routes>
+      <Footer/>
     </Router>
-  );
-};
+    </CartProvider>
+  )
+}
 
-export default App;
+export default App

@@ -1,17 +1,15 @@
-import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const Layout = ({ children, cartItems }) => {
+export default function Layout() {
   return (
     <>
-      <Header cartItems={cartItems} />
-      <main style={{ display: 'flex', gap: '2rem', padding: '2rem' }}>
-        {children}
+      <Navbar />
+      <main className="container">
+        <Outlet />
       </main>
       <Footer />
     </>
   );
-};
-
-export default Layout;
+}

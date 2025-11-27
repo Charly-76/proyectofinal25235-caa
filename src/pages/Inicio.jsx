@@ -1,12 +1,14 @@
 import React from 'react';
+import ProductList from '../components/ProductList';
+import '../App.css'; 
 
 const Inicio = () => {
   return (
-    <div>
-      <h2>Bienvenido a Mi Tienda Online</h2>
-      <p>Aquí encontrarás los mejores productos para ti.</p>
+    <div className="container">
+      <h1 className="neon-title">Todos los productos</h1>
+      <ProductList />
     </div>
   );
 };
 
-export default Inicio; 
+export default Inicio;
