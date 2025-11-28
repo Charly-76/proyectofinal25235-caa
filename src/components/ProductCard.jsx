@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import '../index.css';
+import '../App.css';
 
 const ProductCard = ({ product, agregarAlCarrito }) => {
   return (

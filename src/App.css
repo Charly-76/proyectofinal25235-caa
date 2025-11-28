@@ -9,49 +9,61 @@
   color: #333;
 }
 
-/* ==================== Header ==================== */
-/* Título estilo neón animado */
-.neon-title {
-  font-weight: bold;
-  font-size: 2rem;
+/* ==================== Reset general ==================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==================== Header y Navbar ==================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  background-color: #000;
+}
+
+.navbar a {
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 
-    0 0 5px #ff6b6b,
-    0 0 10px #ff6b6b,
-    0 0 20px #ff6b6b,
-    0 0 40px #ff4757,
-    0 0 80px #ff4757;
-  animation: neonFlicker 2s infinite alternate;
-  transition: transform 0.3s;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
 }
 
-.neon-title:hover {
-  transform: scale(1.3);
-  text-shadow:
-    0 0 10px #48dbfb,
-    0 0 20px #48dbfb,
-    0 0 30px #48dbfb,
-    0 0 50px #1dd1a1,
-    0 0 100px #1dd1a1;
+.navbar a:hover {
+  opacity: 0.7;
 }
 
-/* Animación de parpadeo neón */
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 5px #ff6b6b,
-      0 0 10px #ff6b6b,
-      0 0 20px #ff6b6b,
-      0 0 40px #ff4757,
-      0 0 80px #ff4757;
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
+header {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 5px 0 0 0;
+}
+
+/* Header con neón */
 .header-custom {
   background: linear-gradient(90deg, #343a40, #495057);
   padding: 1rem 0;
@@ -72,6 +84,30 @@
   color: #fff;
 }
 
+/* Logo estilo neón */
+.brand-title.neon-title {
+  color: #ff00ff;
+  font-size: 1.5rem;
+  text-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff;
+}
+
+/* Esfera neón */
+.neon-sphere {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #00ffff, #000);
+  box-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 15px #00ffff;
+}
+
+/* Links del header */
 .nav-link-custom {
   color: #f8f9fa;
   transition: color 0.3s;
@@ -108,7 +144,7 @@
   padding: 0.4em 0.6em;
 }
 
-/* ==================== Iconos de redes sociales ==================== */
+/* Iconos sociales */
 .social-icon {
   color: #f8f9fa;
   transition: color 0.3s, transform 0.3s;
@@ -119,11 +155,97 @@
   transform: scale(1.2);
 }
 
+/* ==================== Texto Neón ==================== */
+.neon-title {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 5px #ff6b6b,
+    0 0 10px #ff6b6b,
+    0 0 20px #ff6b6b,
+    0 0 40px #ff4757,
+    0 0 80px #ff4757;
+  animation: neonFlicker 2s infinite alternate;
+  transition: transform 0.3s;
+}
+
+.neon-title:hover {
+  transform: scale(1.3);
+  text-shadow:
+    0 0 10px #48dbfb,
+    0 0 20px #48dbfb,
+    0 0 30px #48dbfb,
+    0 0 50px #1dd1a1,
+    0 0 100px #1dd1a1;
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 5px #ff6b6b,
+      0 0 10px #ff6b6b,
+      0 0 20px #ff6b6b,
+      0 0 40px #ff4757,
+      0 0 80px #ff4757;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+/* ==================== Contenedor general ==================== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ==================== Grid general ==================== */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 20px;
+}
+
+/* ==================== Cards generales ==================== */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.card button:hover {
+  opacity: 0.8;
+}
+
 /* ==================== Tarjetas de producto ==================== */
 .product-card {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
-  height: 100%; /* que ocupe todo el espacio del Col */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -139,7 +261,6 @@
   transform: translateY(-10px) scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-
 
 .product-card .card-body {
   padding: 15px;
@@ -165,7 +286,6 @@
 .product-card button:hover {
   transform: scale(1.05);
 }
-
 /* ==================== Formulario de filtros ==================== */
 .filter-card {
   padding: 1.5rem;
@@ -195,57 +315,12 @@
   transform: scale(1.05);
 }
 
-/* ==================== Media Queries ==================== */
-@media (max-width: 992px) {
-  .product-card img { max-height: 130px; }
-  .brand-title { font-size: 1rem; }
-}
-
-@media (max-width: 768px) {
-  #root { padding: 1rem; }
-  .product-card img { max-height: 120px; }
-  .nav-link-custom { font-size: 0.95rem; margin-bottom: 0.5rem; }
-  .brand-title { font-size: 0.95rem; }
-  .btn-header { font-size: 0.85rem; padding: 4px 10px; }
-  .social-icon { font-size: 1.1rem; }
-}
-
-@media (max-width: 576px) {
-  .product-card img { max-height: 100px; }
-  .brand-title { font-size: 0.85rem; }
-  .nav-link-custom { font-size: 0.85rem; margin-bottom: 0.3rem; }
-  .btn-header { font-size: 0.75rem; padding: 3px 8px; }
-  .social-icon { font-size: 1rem; margin-right: 0.5rem; }
-}
-/* Logo estilo neón */
-.brand-title.neon-title {
-  color: #ff00ff;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-shadow:
-    0 0 5px #ff00ff,
-    0 0 10px #ff00ff,
-    0 0 20px #00ffff,
-    0 0 30px #00ffff;
-}
-
-/* Esfera neón al lado del texto */
-.neon-sphere {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #00ffff, #000);
-  box-shadow:
-    0 0 5px #00ffff,
-    0 0 10px #00ffff,
-    0 0 15px #00ffff;
-}
-/* src/components/ProductSlider.css */
-
+/* ==================== Slider general ==================== */
 .slider-container {
   overflow-x: auto;
   white-space: nowrap;
   padding: 1rem 0;
+  scroll-behavior: smooth;
 }
 
 .slider {
@@ -256,12 +331,20 @@
 .slider-item {
   display: inline-block;
   flex: 0 0 auto;
-  width: 250px; /* ancho de cada tarjeta */
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.slider-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ==================== Deluxe ==================== */
 .deluxe-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3rem;
-  color: #ff00ff; /* neón magenta */
+  color: #ff00ff;
   text-shadow:
     0 0 5px #ff00ff,
     0 0 10px #ff00ff,
@@ -295,7 +378,7 @@
   box-shadow: 0 0 20px #ff33cc, 0 0 30px #cc00ff;
 }
 
-/* Logo animado */
+/* Logo animado sección productos */
 .productos-logo {
   width: 60px;
   height: 60px;
@@ -306,6 +389,8 @@
   transform: rotateY(360deg) scale(1.2);
   filter: hue-rotate(90deg);
 }
+
+/* ==================== Carrusel (Más vendidos) ==================== */
 .contenedor-mas-vendidos {
   text-align: center;
   padding: 20px;
@@ -322,7 +407,7 @@
 
 .carrusel-ventana {
   overflow: hidden;
-  width: 350px;         /* tamaño mediano */
+  width: 350px;
   height: 420px;
   border-radius: 10px;
 }
@@ -343,12 +428,10 @@
   cursor: pointer;
 }
 
-/* ⭐ EFECTO AL PASAR EL MOUSE ⭐ */
 .card-producto:hover {
   transform: scale(1.05) translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
-
 
 .card-producto img {
   width: 200px;
@@ -371,6 +454,7 @@
 .btn-carrusel:hover {
   background: #444;
 }
+
 .contenedor-mas-vendidos h2 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -386,4 +470,212 @@
   }
 }
 
+/* ==================== Ofertas ==================== */
+.ofertas-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 4rem;
+  color: #ff3d00;
+  text-shadow:
+    2px 2px 0 #ffeb3b,
+    4px 4px 0 #f44336,
+    6px 6px 0 #2196f3,
+    8px 8px 0 #4caf50;
+  margin: 2rem 0;
+}
 
+.ofertas-title:hover {
+  transform: scale(1.15);
+  transition: transform 0.3s ease;
+}
+
+.ofertas-icon-wrapper {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  perspective: 600px;
+}
+
+.ofertas-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #6e6e6e;
+  transform-style: preserve-3d;
+  transition: color 0.3s ease;
+}
+
+.ofertas-icon-wrapper:hover .ofertas-icon {
+  color: #a0522d;
+  animation: giro 2s linear infinite;
+}
+
+@keyframes giro {
+  from {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+/* ==================== Footer ==================== */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Botones globales */
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+/* ----------- Max-width 992px (Tablets grandes) ----------- */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-card img {
+    max-height: 130px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+}
+
+/* ----------- Max-width 768px (Tablets pequeñas) ----------- */
+@media (max-width: 768px) {
+
+  #root {
+    padding: 1rem;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-card img {
+    max-height: 120px;
+  }
+
+  .nav-link-custom {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .btn-header {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+  }
+
+  .social-icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* ----------- Max-width 576px (Celulares medianos) ----------- */
+@media (max-width: 576px) {
+  .product-card img {
+    max-height: 100px;
+  }
+
+  .brand-title {
+    font-size: 0.85rem;
+  }
+
+  .nav-link-custom {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .btn-header {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+
+  .social-icon {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* ----------- Max-width 480px (Celulares pequeños) ----------- */
+@media (max-width: 480px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card button {
+    width: 100%;
+  }
+
+  /* Slider responsivo */
+  .slider-container {
+    overflow-x: auto;
+    padding: 20px 0;
+  }
+
+  .slider {
+    display: flex;
+    gap: 15px;
+  }
+
+  .slider-item {
+    flex: 0 0 auto;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .slider-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Social icons */
+  .social-icon {
+    color: white;
+    transition: color 0.3s;
+  }
+
+  .social-icon:hover {
+    color: #f0a500;
+  }
+}
+
+/* Ajustes de producto */
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
